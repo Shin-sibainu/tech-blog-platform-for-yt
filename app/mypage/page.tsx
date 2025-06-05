@@ -41,42 +41,43 @@ export default function MyPage() {
   }, [user, loading, router])
 
   useEffect(() => {
+    const loadPosts = async () => {
+      if (!user) return
+
+      setIsLoading(true)
+      
+      // Get all posts first for statistics
+      const { posts: allPosts, error: allError } = await getUserPostsClient(user.id, true)
+      
+      if (allError) {
+        console.error('Error loading posts:', allError)
+        setIsLoading(false)
+        return
+      }
+
+      // Calculate statistics from all posts
+      const totalPosts = allPosts.length
+      const publishedPosts = allPosts.filter(post => post.is_published).length
+      const draftPosts = totalPosts - publishedPosts
+      setStats({ totalPosts, publishedPosts, draftPosts })
+
+      // Filter posts based on current filter
+      let filteredPosts = allPosts
+      if (filter === 'published') {
+        filteredPosts = allPosts.filter(post => post.is_published)
+      } else if (filter === 'draft') {
+        filteredPosts = allPosts.filter(post => !post.is_published)
+      }
+
+      setPosts(filteredPosts)
+      setIsLoading(false)
+    }
+    
     if (user) {
       loadPosts()
     }
   }, [user, filter])
 
-  const loadPosts = async () => {
-    if (!user) return
-
-    setIsLoading(true)
-    
-    // Get all posts first for statistics
-    const { posts: allPosts, error: allError } = await getUserPostsClient(user.id, true)
-    
-    if (allError) {
-      console.error('Error loading posts:', allError)
-      setIsLoading(false)
-      return
-    }
-
-    // Calculate statistics from all posts
-    const totalPosts = allPosts.length
-    const publishedPosts = allPosts.filter(post => post.is_published).length
-    const draftPosts = totalPosts - publishedPosts
-    setStats({ totalPosts, publishedPosts, draftPosts })
-
-    // Filter posts based on current filter
-    let filteredPosts = allPosts
-    if (filter === 'published') {
-      filteredPosts = allPosts.filter(post => post.is_published)
-    } else if (filter === 'draft') {
-      filteredPosts = allPosts.filter(post => !post.is_published)
-    }
-
-    setPosts(filteredPosts)
-    setIsLoading(false)
-  }
 
   const handleDelete = async (postId: string) => {
     if (!confirm('この記事を削除してもよろしいですか？')) return
@@ -87,7 +88,39 @@ export default function MyPage() {
       console.error('Error deleting post:', error)
       alert('記事の削除に失敗しました')
     } else {
-      loadPosts()
+      // Reload posts by triggering the useEffect
+      if (user) {
+        const loadPosts = async () => {
+          setIsLoading(true)
+          
+          // Get all posts first for statistics
+          const { posts: allPosts, error: allError } = await getUserPostsClient(user.id, true)
+          
+          if (allError) {
+            console.error('Error loading posts:', allError)
+            setIsLoading(false)
+            return
+          }
+
+          // Calculate statistics from all posts
+          const totalPosts = allPosts.length
+          const publishedPosts = allPosts.filter(post => post.is_published).length
+          const draftPosts = totalPosts - publishedPosts
+          setStats({ totalPosts, publishedPosts, draftPosts })
+
+          // Filter posts based on current filter
+          let filteredPosts = allPosts
+          if (filter === 'published') {
+            filteredPosts = allPosts.filter(post => post.is_published)
+          } else if (filter === 'draft') {
+            filteredPosts = allPosts.filter(post => !post.is_published)
+          }
+
+          setPosts(filteredPosts)
+          setIsLoading(false)
+        }
+        loadPosts()
+      }
     }
   }
 

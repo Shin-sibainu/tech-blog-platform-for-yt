@@ -31,29 +31,30 @@ export default function ProfilePage() {
   }, [user, loading, router])
 
   useEffect(() => {
+    const loadProfile = async () => {
+      if (!user) return
+
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single()
+
+      if (error) {
+        console.error('Error loading profile:', error)
+        setMessage({ type: 'error', text: 'プロフィールの読み込みに失敗しました' })
+      } else if (data) {
+        setProfile(data)
+        setUsername(data.username || '')
+        setAvatarUrl(data.avatar_url || '')
+      }
+    }
+    
     if (user) {
       loadProfile()
     }
-  }, [user])
+  }, [user, supabase])
 
-  const loadProfile = async () => {
-    if (!user) return
-
-    const { data, error } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', user.id)
-      .single()
-
-    if (error) {
-      console.error('Error loading profile:', error)
-      setMessage({ type: 'error', text: 'プロフィールの読み込みに失敗しました' })
-    } else if (data) {
-      setProfile(data)
-      setUsername(data.username || '')
-      setAvatarUrl(data.avatar_url || '')
-    }
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -76,7 +77,18 @@ export default function ProfilePage() {
     } else {
       setMessage({ type: 'success', text: 'プロフィールを更新しました' })
       setIsEditing(false)
-      loadProfile()
+      // Reload profile by re-fetching data
+      const { data, error: loadError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single()
+
+      if (!loadError && data) {
+        setProfile(data)
+        setUsername(data.username || '')
+        setAvatarUrl(data.avatar_url || '')
+      }
     }
 
     setSaving(false)

@@ -8,13 +8,14 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const { post } = await getPostById(params.id)
+  const resolvedParams = await params
+  const { post } = await getPostById(resolvedParams.id)
   
   if (!post) {
     return {
@@ -29,7 +30,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const { post, error } = await getPostById(params.id)
+  const resolvedParams = await params
+  const { post, error } = await getPostById(resolvedParams.id)
   
   if (error || !post) {
     notFound()

@@ -152,7 +152,7 @@ export default function EditPostPage({ params }: EditPostPageProps) {
             <MarkdownEditor
               value={content}
               onChange={setContent}
-              height="400px"
+              height={400}
             />
           </div>
 

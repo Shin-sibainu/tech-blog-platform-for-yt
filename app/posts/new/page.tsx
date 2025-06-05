@@ -82,7 +82,7 @@ export default function NewPostPage() {
             <MarkdownEditor
               value={content}
               onChange={setContent}
-              height="400px"
+              height={400}
             />
           </div>
 

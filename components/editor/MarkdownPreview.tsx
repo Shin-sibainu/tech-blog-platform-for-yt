@@ -27,12 +27,13 @@ export default function MarkdownPreview({ content, className = '' }: MarkdownPre
               {children}
             </blockquote>
           ),
-          code: ({ inline, className, children }) => {
-            if (inline) {
+          code: ({ className, children, ...props }: any) => {
+            const isInline = !className || !className.includes('language-')
+            if (isInline) {
               return <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">{children}</code>
             }
             return (
-              <code className={className}>
+              <code className={className} {...props}>
                 {children}
               </code>
             )

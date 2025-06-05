@@ -17,7 +17,9 @@
       "Bash(rm:*)",
       "Bash(npm run build:*)",
       "mcp__supabase__apply_migration",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx next lint:*)"
     ],
     "deny": []
   }

@@ -24,7 +24,6 @@ export default function MarkdownEditor({
   height = 500 
 }: MarkdownEditorProps) {
   const [isPreview, setIsPreview] = useState<'edit' | 'preview'>('edit')
-  const [isSaving, setIsSaving] = useState(false)
 
   const handleChange = useCallback((val?: string) => {
     onChange(val || '')
@@ -64,9 +63,6 @@ export default function MarkdownEditor({
             プレビュー
           </button>
         </div>
-        {isSaving && (
-          <span className="text-sm text-gray-500">保存中...</span>
-        )}
       </div>
       
       <div data-color-mode="light">

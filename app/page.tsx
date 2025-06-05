@@ -15,13 +15,6 @@ export default async function HomePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-32 min-h-[90vh] flex items-center">
-        {/* Background decorations */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-          <div className="absolute top-3/4 left-1/2 w-64 h-64 bg-indigo-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        </div>
-        
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-40">
           <div className="h-full w-full" style={{
@@ -40,12 +33,8 @@ export default async function HomePage() {
 
           {/* Main heading */}
           <h1 className="mb-6 text-6xl font-bold leading-tight tracking-tight md:text-8xl">
-            <span className="relative">
-              <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
-                Tech Blog
-              </span>
-              {/* Underline decoration */}
-              <div className="absolute -bottom-2 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 md:w-32" />
+            <span className="bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
+              Tech Blog
             </span>
           </h1>
 

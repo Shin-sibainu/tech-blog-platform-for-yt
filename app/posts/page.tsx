@@ -3,13 +3,14 @@ import PostCard from '@/components/posts/PostCard'
 import Pagination from '@/components/posts/Pagination'
 
 interface PostsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string
-  }
+  }>
 }
 
 export default async function PostsPage({ searchParams }: PostsPageProps) {
-  const currentPage = Number(searchParams.page) || 1
+  const resolvedSearchParams = await searchParams
+  const currentPage = Number(resolvedSearchParams.page) || 1
   const postsPerPage = 10
   
   const { posts, totalCount, error } = await getPublishedPosts(currentPage, postsPerPage)
