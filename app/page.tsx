@@ -3,9 +3,6 @@ import PostCard from "@/components/posts/PostCard";
 import Link from "next/link";
 import { ConditionalLink } from "@/components/ui/conditional-link";
 
-// 動的レンダリングを強制
-export const dynamic = "force-dynamic";
-
 async function getLatestPosts() {
   try {
     const { posts } = await getPublishedPosts(1, 6);
