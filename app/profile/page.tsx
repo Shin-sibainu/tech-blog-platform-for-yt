@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { createClient } from '@/lib/supabase/client'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 type Profile = {
   id: string
@@ -126,9 +127,11 @@ export default function ProfilePage() {
         <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
           <div className="mb-6">
             {profile?.avatar_url && (
-              <img
+              <Image
                 src={profile.avatar_url}
                 alt="Avatar"
+                width={96}
+                height={96}
                 className="w-24 h-24 rounded-full mb-4"
               />
             )}
@@ -193,9 +196,11 @@ export default function ProfilePage() {
                 placeholder="https://example.com/avatar.jpg"
               />
               {avatarUrl && (
-                <img
+                <Image
                   src={avatarUrl}
                   alt="Avatar preview"
+                  width={96}
+                  height={96}
                   className="mt-2 w-24 h-24 rounded-full object-cover"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none'

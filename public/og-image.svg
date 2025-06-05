@@ -1,0 +1,158 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main background gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="30%" style="stop-color:#1e293b"/>
+      <stop offset="70%" style="stop-color:#334155"/>
+      <stop offset="100%" style="stop-color:#475569"/>
+    </linearGradient>
+    
+    <!-- Logo gradient -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#22c55e"/>
+    </linearGradient>
+    
+    <!-- Text gradient -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#a78bfa"/>
+    </linearGradient>
+    
+    <!-- Accent gradient -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    
+    <!-- Grid pattern -->
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="40" cy="40" r="1" fill="#64748b" opacity="0.3"/>
+    </pattern>
+    
+    <!-- Code pattern -->
+    <pattern id="codePattern" width="200" height="100" patternUnits="userSpaceOnUse">
+      <rect width="200" height="100" fill="none"/>
+      <text x="10" y="20" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e" opacity="0.4">const blog = () =&gt; {</text>
+      <text x="20" y="40" font-family="JetBrains Mono, monospace" font-size="12" fill="#60a5fa" opacity="0.4">return &lt;Article /&gt;;</text>
+      <text x="10" y="60" font-family="JetBrains Mono, monospace" font-size="12" fill="#22c55e" opacity="0.4">};</text>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Grid overlay -->
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Code pattern overlay -->
+  <rect width="1200" height="630" fill="url(#codePattern)" opacity="0.1"/>
+  
+  <!-- Floating geometric elements -->
+  <g opacity="0.6">
+    <!-- Floating circles -->
+    <circle cx="120" cy="100" r="60" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+    <circle cx="120" cy="100" r="40" fill="#3b82f6" opacity="0.1"/>
+    
+    <circle cx="1080" cy="130" r="80" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.5"/>
+    <circle cx="1080" cy="130" r="50" fill="#22c55e" opacity="0.1"/>
+    
+    <circle cx="150" cy="530" r="45" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+    <circle cx="150" cy="530" r="30" fill="#8b5cf6" opacity="0.1"/>
+    
+    <circle cx="1050" cy="500" r="65" fill="none" stroke="#60a5fa" stroke-width="2" opacity="0.5"/>
+    <circle cx="1050" cy="500" r="45" fill="#60a5fa" opacity="0.1"/>
+    
+    <!-- Hexagons -->
+    <polygon points="950,200 980,185 1010,200 1010,230 980,245 950,230" fill="none" stroke="#22c55e" stroke-width="2" opacity="0.4"/>
+    <polygon points="200,350 230,335 260,350 260,380 230,395 200,380" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
+  </g>
+  
+  <!-- Main title -->
+  <text x="600" y="250" font-family="Inter, system-ui, sans-serif" font-size="84" font-weight="800" fill="url(#textGradient)" text-anchor="middle" letter-spacing="-0.02em">
+    DevSpace
+  </text>
+  
+  <!-- Subtitle with modern styling -->
+  <text x="600" y="320" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="0.05em">
+    Code • Share • Grow
+  </text>
+  
+  <!-- Description -->
+  <text x="600" y="375" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400" fill="#cbd5e1" text-anchor="middle">
+    技術者たちが知識を共有し、学び合うプラットフォーム
+  </text>
+  
+  <!-- Modern badges -->
+  <g transform="translate(350, 430)">
+    <!-- Tech Blog badge -->
+    <g>
+      <rect x="0" y="0" width="140" height="50" rx="25" fill="rgba(59, 130, 246, 0.1)" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1"/>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#60a5fa" text-anchor="middle">Tech Blog</text>
+    </g>
+    
+    <!-- Community badge -->
+    <g transform="translate(160, 0)">
+      <rect x="0" y="0" width="140" height="50" rx="25" fill="rgba(34, 197, 94, 0.1)" stroke="rgba(34, 197, 94, 0.5)" stroke-width="1"/>
+      <text x="70" y="32" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#4ade80" text-anchor="middle">Community</text>
+    </g>
+    
+    <!-- Modern badge -->
+    <g transform="translate(320, 0)">
+      <rect x="0" y="0" width="120" height="50" rx="25" fill="rgba(139, 92, 246, 0.1)" stroke="rgba(139, 92, 246, 0.5)" stroke-width="1"/>
+      <text x="60" y="32" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#a78bfa" text-anchor="middle">Modern</text>
+    </g>
+  </g>
+  
+  <!-- Bottom tech elements -->
+  <g opacity="0.4">
+    <!-- Left side code lines -->
+    <rect x="80" y="580" width="200" height="4" rx="2" fill="#3b82f6"/>
+    <rect x="80" y="590" width="160" height="3" rx="1.5" fill="#64748b"/>
+    <rect x="80" y="598" width="180" height="3" rx="1.5" fill="#22c55e"/>
+    
+    <!-- Right side code lines -->
+    <rect x="920" y="580" width="200" height="4" rx="2" fill="#8b5cf6"/>
+    <rect x="920" y="590" width="140" height="3" rx="1.5" fill="#64748b"/>
+    <rect x="920" y="598" width="170" height="3" rx="1.5" fill="#60a5fa"/>
+  </g>
+  
+  <!-- Subtle corner accents -->
+  <g opacity="0.3">
+    <!-- Top left corner -->
+    <path d="M0 0 L80 0 L80 2 L2 2 L2 80 L0 80 Z" fill="url(#accentGradient)"/>
+    
+    <!-- Bottom right corner -->
+    <path d="M1200 630 L1120 630 L1120 628 L1198 628 L1198 550 L1200 550 Z" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Glow effects -->
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Apply glow to main elements -->
+  <g filter="url(#glow)" opacity="0.8">
+    <circle cx="600" cy="180" r="4" fill="#22c55e"/>
+    <circle cx="520" cy="250" r="3" fill="#3b82f6"/>
+    <circle cx="680" cy="250" r="3" fill="#8b5cf6"/>
+    <circle cx="450" cy="320" r="2" fill="#60a5fa"/>
+    <circle cx="750" cy="320" r="2" fill="#a78bfa"/>
+  </g>
+  
+  <!-- Subtle code symbols -->
+  <g opacity="0.4" fill="#22c55e" font-family="JetBrains Mono, monospace" font-size="24" font-weight="600">
+    <text x="400" y="200" text-anchor="middle">&lt;/&gt;</text>
+    <text x="800" y="200" text-anchor="middle">{ }</text>
+    <text x="300" y="450" text-anchor="middle">npm</text>
+    <text x="900" y="450" text-anchor="middle">git</text>
+  </g>
+</svg>

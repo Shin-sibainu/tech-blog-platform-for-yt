@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { formatDistanceToNow } from 'date-fns'
 import { Clock, User, ArrowRight, Code, Zap } from 'lucide-react'
 
@@ -71,9 +72,11 @@ export default function PostCard({ post }: PostCardProps) {
           <div className="flex items-center gap-3">
             <div className="relative">
               {post.profiles.avatar_url ? (
-                <img 
+                <Image 
                   src={post.profiles.avatar_url} 
                   alt={post.profiles.username}
+                  width={32}
+                  height={32}
                   className="h-8 w-8 rounded-full border-2 border-border shadow-sm"
                 />
               ) : (

@@ -1,6 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
+import Image from 'next/image'
 import 'highlight.js/styles/github.css'
 
 interface MarkdownPreviewProps {
@@ -27,7 +28,7 @@ export default function MarkdownPreview({ content, className = '' }: MarkdownPre
               {children}
             </blockquote>
           ),
-          code: ({ className, children, ...props }: any) => {
+          code: ({ className, children, ...props }) => {
             const isInline = !className || !className.includes('language-')
             if (isInline) {
               return <code className="bg-gray-100 px-1 py-0.5 rounded text-sm">{children}</code>
@@ -48,9 +49,18 @@ export default function MarkdownPreview({ content, className = '' }: MarkdownPre
               {children}
             </a>
           ),
-          img: ({ src, alt }) => (
-            <img src={src} alt={alt} className="max-w-full h-auto rounded-lg my-4" />
-          ),
+          img: ({ src, alt }) => {
+            const imageSrc = typeof src === 'string' ? src : ''
+            return (
+              <Image 
+                src={imageSrc} 
+                alt={alt || ''} 
+                width={800} 
+                height={400} 
+                className="max-w-full h-auto rounded-lg my-4" 
+              />
+            )
+          },
           table: ({ children }) => (
             <table className="min-w-full border-collapse border border-gray-300 my-4">
               {children}

@@ -5,6 +5,7 @@ import { formatDistanceToNow } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 
 interface PostPageProps {
@@ -56,9 +57,11 @@ export default async function PostPage({ params }: PostPageProps) {
             <div className="flex items-center gap-4 text-gray-600 mb-6">
               <div className="flex items-center gap-2">
                 {post.profiles.avatar_url ? (
-                  <img 
+                  <Image 
                     src={post.profiles.avatar_url} 
                     alt={post.profiles.username}
+                    width={40}
+                    height={40}
                     className="w-10 h-10 rounded-full"
                   />
                 ) : (

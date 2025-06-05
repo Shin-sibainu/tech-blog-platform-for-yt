@@ -19,8 +19,45 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tech Blog - 技術記事投稿プラットフォーム",
-  description: "技術記事を共有するためのシンプルなプラットフォーム",
+  title: "DevSpace - 技術者のためのブログプラットフォーム",
+  description:
+    "技術者たちが知識を共有し、学び合うモダンなプラットフォーム。最新の技術情報をシェアして、コミュニティとともに成長しましょう。",
+  keywords: [
+    "技術ブログ",
+    "プログラミング",
+    "開発者",
+    "テック",
+    "エンジニア",
+    "コミュニティ",
+  ],
+  authors: [{ name: "DevSpace Team" }],
+  openGraph: {
+    title: "DevSpace - 技術者のためのブログプラットフォーム",
+    description: "技術者たちが知識を共有し、学び合うモダンなプラットフォーム",
+    url: "https://devspace.tech",
+    siteName: "DevSpace",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "DevSpace - Code • Share • Grow - 技術者たちが知識を共有し、学び合うプラットフォーム",
+        type: "image/svg+xml",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DevSpace - 技術者のためのブログプラットフォーム",
+    description: "技術者たちが知識を共有し、学び合うモダンなプラットフォーム",
+    images: ["/og-image.svg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
