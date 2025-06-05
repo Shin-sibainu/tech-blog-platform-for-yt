@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Cookies</title>
+</head>
+<body>
+    <h1>Cookie Cleaner</h1>
+    <p>This page will clear all cookies for localhost:3000</p>
+    <button onclick="clearAllCookies()">Clear All Cookies</button>
+    <div id="result"></div>
+    
+    <script>
+        function clearAllCookies() {
+            // Get all cookies
+            const cookies = document.cookie.split(';');
+            
+            // Clear each cookie
+            cookies.forEach(cookie => {
+                const eqPos = cookie.indexOf('=');
+                const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+                if (name) {
+                    // Clear for all possible paths
+                    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+                    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=localhost';
+                    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.localhost';
+                }
+            });
+            
+            document.getElementById('result').innerHTML = '<p style="color: green;">All cookies cleared! Please go back to <a href="/">Home</a></p>';
+        }
+    </script>
+</body>
+</html>

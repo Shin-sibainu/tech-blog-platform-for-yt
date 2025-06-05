@@ -1,0 +1,102 @@
+/* Markdown Editor Styles */
+.markdown-editor-container {
+  width: 100%;
+}
+
+.markdown-editor-container .w-md-editor {
+  background-color: #ffffff;
+}
+
+.markdown-editor-container .w-md-editor-preview {
+  padding: 20px;
+}
+
+.markdown-editor-container .wmde-markdown {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.markdown-editor-container .wmde-markdown h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+  font-weight: bold;
+}
+
+.markdown-editor-container .wmde-markdown h2 {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+  font-weight: bold;
+}
+
+.markdown-editor-container .wmde-markdown h3 {
+  font-size: 1.17em;
+  margin: 0.83em 0;
+  font-weight: bold;
+}
+
+.markdown-editor-container .wmde-markdown p {
+  margin: 1em 0;
+}
+
+.markdown-editor-container .wmde-markdown code {
+  background-color: #f3f4f6;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+}
+
+.markdown-editor-container .wmde-markdown pre {
+  background-color: #f3f4f6;
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.markdown-editor-container .wmde-markdown blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1em;
+  margin: 1em 0;
+  color: #6b7280;
+}
+
+.markdown-editor-container .wmde-markdown ul,
+.markdown-editor-container .wmde-markdown ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.markdown-editor-container .wmde-markdown li {
+  margin: 0.5em 0;
+}
+
+.markdown-editor-container .wmde-markdown a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.markdown-editor-container .wmde-markdown a:hover {
+  color: #2563eb;
+}
+
+.markdown-editor-container .wmde-markdown img {
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown-editor-container .wmde-markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.markdown-editor-container .wmde-markdown th,
+.markdown-editor-container .wmde-markdown td {
+  border: 1px solid #e5e7eb;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.markdown-editor-container .wmde-markdown th {
+  background-color: #f9fafb;
+  font-weight: bold;
+}
